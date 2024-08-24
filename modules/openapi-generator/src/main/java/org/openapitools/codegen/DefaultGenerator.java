@@ -565,6 +565,7 @@ public class DefaultGenerator implements Generator {
                             // alias to number, string, enum, etc, which should not be generated as model
                             // but aliases are still used to dereference models in some languages (such as in html2).
                             aliasModels.add(modelTemplate);  // Store aliases in the separate list.
+                            generateModelDocumentation(files, models, modelName);
                             continue;  // Don't create user-defined classes for aliases
                         }
                     }
