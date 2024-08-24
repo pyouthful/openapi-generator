@@ -976,7 +976,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(camelizedName)) {
-            final String modelName = "Model" + camelizedName;
+            final String modelName = camelizedName;
             schemaKeyToModelNameCache.put(origName, modelName);
             LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
@@ -984,7 +984,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
-            final String modelName = "Model" + camelizedName; // e.g. 200Response => Model200Response (after camelize)
+            final String modelName = camelizedName; // e.g. 200Response => Model200Response (after camelize)
             schemaKeyToModelNameCache.put(origName, modelName);
             LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", name,
                     modelName);
