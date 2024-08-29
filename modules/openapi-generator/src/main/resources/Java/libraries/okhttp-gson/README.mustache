@@ -1,28 +1,21 @@
-# {{appName}}
-
+[/INST] Please provide me with a description of the SBI service name: {{appName}}[/INST] 
 {{{appDescriptionWithNewLines}}}
-
-## Documentation for API Endpoints
-
-All URIs are relative to *{{basePath}}*
-
+</s>[INST] List all API endpoints relative to the base URL of this service: [/INST] 
+{{#apiInfo}}
+{{^apis}} No API endpoints defined in this service.{{/apis}}
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}}
-{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
-
-## Documentation for Models
-
-{{#models}}{{#model}} - [{{classname}}]({{modelDocPath}}{{classname}}.md)
+{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | **{{operationId}}** | **{{httpMethod}}** {{path}} | {{summary}}
+{{/operation}}{{/operations}}{{/apis}}
+> Note: The base URL takes the form of *{{basePath}}*
+{{/apiInfo}}
+  
+</s>[INST] List all attributes defined in this service: [/INST] 
+{{#models}}{{#model}} - {{classname}}
 {{/model}}{{/models}}
-
-<a id="documentation-for-authorization"></a>
-## Documentation for Authorization
-
+</s>[INST] List all authentication schemes defined for the API: [/INST] 
 {{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
-{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
 {{#authMethods}}
-<a id="{{name}}"></a>
 ### {{name}}
 
 {{#isApiKey}}- **Type**: API key
@@ -44,4 +37,4 @@ Class | Method | HTTP request | Description
 {{/isOAuth}}
 
 {{/authMethods}}
-
+</s>
